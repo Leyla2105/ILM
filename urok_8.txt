@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lesson_8Lab1
+{
+public partial class Form1 : Form
+{
+public Form1()
+{
+InitializeComponent();
+}
+
+private void btnAdd_Click(object sender, EventArgs e)
+{
+lstZakaz.Items.Add(lstMenu.SelectedItem);
+}
+
+private void btnRemove_Click(object sender, EventArgs e)
+{
+lstZakaz.Items.Remove(lstZakaz.SelectedItem);
+}
+
+private void btnOk_Click(object sender, EventArgs e)
+{
+int sum = 0;
+foreach (var item in lstZakaz.Items)
+{
+switch (item)
+{
+case "Салат(80)":
+sum += 80;
+break;
+case "Торт Киевский (120)":
+sum += 120;
+break;
+case "Торт Наполеон(180)":
+sum += 180;
+break;
+case "Пицца (100)":
+sum += 100;
+break;
+case "Шаурма (170)":
+sum += 170;
+break;
+case "Пирог (80)":
+sum += 80;
+break;
+}
+}
+MessageBox.Show($"Приятного аппетита! Сумма к оплате: {sum} рублей", "Два пирога");
+this.Close();
+}
+
+private void btnRemoveAll_Click(object sender, EventArgs e)
+{
+lstZakaz.Items.Clear();
+}
+
+private void btnAddNew_Click(object sender, EventArgs e)
+{
+lstMenu.Items.Add(txtNew.Text); 
+Файл не выбран
+Ещё
+
+
+
